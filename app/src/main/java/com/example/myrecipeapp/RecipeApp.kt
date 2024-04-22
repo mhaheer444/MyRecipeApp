@@ -16,11 +16,11 @@ fun RecipeApp(navController: NavHostController) {
         startDestination = Screen.RecipeScreen.route) {
         composable(route = Screen.RecipeScreen.route) {
             RecipeScreen(viewstate = viewstate, navigateToDetail = {
-            navController.currentBackStackEntry?.savedStateHandle?.set("cat", it)
-            navController.navigate(Screen.DetailScreen.route)
+                navController.currentBackStackEntry?.savedStateHandle?.set("cat", it)
+                navController.navigate(Screen.DetailScreen.route)
             })
         }
-        composable(route = Screen.RecipeScreen.route) {
+        composable(route = Screen.DetailScreen.route) {
             val category = navController.previousBackStackEntry?.savedStateHandle?.
             get<Category>("cat") ?: Category("","","","")
             CategoryDetailScreen(category = category)
